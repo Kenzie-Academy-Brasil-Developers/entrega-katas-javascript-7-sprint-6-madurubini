@@ -9,7 +9,7 @@ function newForEach(array, callback){
 }
 
 
-// Fill()
+//fill()
 
 function newFill (array , valor , inicio = 0, fim = array.length){
     for(let i = inicio; i < fim; i++){
@@ -30,7 +30,7 @@ function newMap (array,callback){
 
 }
 
-// some()
+//some()
 
 function newSome(array, callback){
     for(let i = 0; i < array.length; i++){
@@ -92,4 +92,65 @@ function newFilter(array,callback){
     }
     return result
 
+}
+
+//concat()
+
+function newConcat(...arrays){
+    let result = []
+    for(let i = 0; i < arrays.length; i++){
+        for(let j = 0; j < arrays[i].length; j++){
+            let valorAtual = arrays[i][j]
+            result.push(valorAtual)
+        }
+    }
+
+    return result
+}
+
+//includes()
+
+function newIncludes(array, element, indiceInicial = 0){
+    for(let i = indiceInicial; i < array.length; i++){
+        valorAtual = array[i]
+        if(valorAtual === element){
+            return true
+        }
+    }
+    return false
+}
+
+//indexOf()
+
+function newIndexOf(array, element){
+    for(let i = 0; i < array.length; i++){
+        let valorAtual = array[i]
+        if(valorAtual === element){
+            return i
+        }
+    }
+    
+}
+
+//join()
+
+function newJoin(array){
+    let valor = array.toString().split("")
+    let result = ""
+    for (let i = 0; i < valor.length; i++) {
+        result += valor[i]
+        
+    }
+    return result
+}
+
+//reduce()
+
+function newReduce(array, callback, valorInicial = array[0], acumulador = valorInicial){
+    for (let i = 0; i < array.length; i++) {
+        let valorAtual = array[i];
+        acumulador = callback(acumulador, valorAtual, i ,array)
+        
+    }
+    return acumulador
 }
